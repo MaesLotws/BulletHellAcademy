@@ -1,0 +1,676 @@
+from abc import ABC, abstractmethod
+import pygame
+pygame.init()
+from replit import audio
+import time
+from PIL import Image
+
+def WaltzForLilly():
+  source = audio.play_file('Waltz For Lilly - 3nd.mp3')
+def Spain():
+  source = audio.play_file("Spain - Chick Corea.mp3")
+def Ether():
+  source = audio.play_file("Ether - Sungazer.mp3")
+def Slip():
+  source = audio.play_file("Slip - Shubh Saran.mp3")
+def Monad():
+  source = audio.play_file("Monad - Soil and Pimp Sessions.mp3")
+def StGeorge():
+  source = audio.play_file("St George - Wordclock.mp3")
+def Cafo():
+  source = audio.play_file("Cafo - Animals as Leaders.mp3")
+def SkatinginCentralPark():
+  source = audio.play_file("Skating in Central Park - Bill Evans and Jim Hall.mp3")
+def BlueinKyoto():
+  source = audio.play_file("Blue in Kyoto - Yusuke Shima.mp3")
+
+font = pygame.font.Font('freesansbold.ttf', 16)
+black = (0, 0, 0)
+win = pygame.display.set_mode((1250, 750)) #Creates the window
+pygame.display.set_caption("Sprite Test") #Window caption
+clock = pygame.time.Clock()
+
+images = [
+pygame.image.load("Amber Angry.png"), 
+pygame.image.load("Amber Default.png"), 
+pygame.image.load("Amber Happy.png"), 
+pygame.image.load("Cadence Angry.png"), 
+pygame.image.load("Cadence Default.png"), 
+pygame.image.load("Cadence Happy.png"), 
+pygame.image.load("Rosie Angry.png"), 
+pygame.image.load("Rosie Default.png"), 
+pygame.image.load("Rosie Happy.png"), 
+pygame.image.load("Sam Angry.png"), 
+pygame.image.load("Sam Default.png"), 
+pygame.image.load("Sam Happy.png"), 
+pygame.image.load("Goku.png")
+] #Just creates a list of the images
+
+titlebg = pygame.image.load("Title BG.png")
+bg1 = pygame.image.load("Mountain BG.png")
+bg2 = pygame.image.load("Classroom BG.png")
+bg3 = pygame.image.load("Goku BG.png")
+bg4 = pygame.image.load("Jazz BG.png")
+bg5 = pygame.image.load("Soccer BG.png")
+bb = pygame.image.load("Battlebox.png")
+bd = pygame.image.load("Backdrop.png")
+tb = pygame.image.load("Text Box.png")
+ch = pygame.image.load("Character Holder.png")
+x = 50
+y= 100
+width = 100
+height = 100
+
+
+
+#Sets initial values so that everything doesn't pop up at once
+sprite1load = False 
+sprite2load = False
+sprite3load = False
+sprite4load = False
+sprite5load = False
+sprite6load = False
+sprite7load = False
+sprite8load = False
+sprite9load = False
+sprite10load = False
+sprite11load = False
+sprite12load = False
+sprite13load = False
+
+#Loads the images
+AmberAng = pygame.image.load("Amber Angry.png")
+AmberAngSmol = pygame.image.load("Amber Angry smol.png")
+AmberDef = pygame.image.load("Amber Default.png")
+AmberDefSmol = pygame.image.load("Amber Default smol.png")
+AmberHap = pygame.image.load("Amber Happy.png")
+AmberHapSmol = pygame.image.load("Amber Happy smol.png")
+CadenceAng = pygame.image.load("Cadence Angry.png")
+CadenceAngSmol = pygame.image.load("Cadence Angry smol.png")
+CadenceDef = pygame.image.load("Cadence Default.png")
+CadenceDefSmol = pygame.image.load("Cadence Default smol.png")
+CadenceHap = pygame.image.load("Cadence Happy.png")
+RosieAng = pygame.image.load("Rosie Angry.png")
+RosieDef = pygame.image.load("Rosie Default.png")
+RosieHap = pygame.image.load("Rosie Happy.png")
+SamAng = pygame.image.load("Sam Angry.png")
+SamDef = pygame.image.load("Sam Default.png")
+SamHap = pygame.image.load("Sam Happy.png")
+Goku = pygame.image.load("Goku.png")
+
+
+def redrawWindow():
+  win.fill((255,255,255))
+  win.blit(bg5, (0,0))
+  win.blit(Goku, (x,y))
+def BulletHell():
+  from game import Game
+
+  SIZE_X = 1000
+  SIZE_Y = 600
+  TICKS_PER_BULLET = 5
+
+  if __name__ == '__main__':
+      pygame.font.init()
+      pygame.init()
+      pygame.display.set_caption('pyBullethell')
+
+      screen = pygame.display.set_mode((SIZE_X, SIZE_Y))
+      clock = pygame.time.Clock()
+
+      game = Game(SIZE_X, SIZE_Y, TICKS_PER_BULLET)
+      game_exit = False
+      while not game_exit:
+          for event in pygame.event.get():
+              if event.type == pygame.QUIT:
+                  game_exit = True
+          foreground = pygame.Surface((SIZE_X, SIZE_Y), pygame.SRCALPHA)
+          foreground.fill(pygame.Color('black'))
+
+          keys = pygame.key.get_pressed()
+          if keys[pygame.K_SPACE]:
+              game = Game(SIZE_X, SIZE_Y, TICKS_PER_BULLET)
+
+          game.tick()
+          game.draw(foreground)
+
+          screen.fill((60, 70, 90))
+          screen.blit(foreground, (0, 0))
+          pygame.display.flip()
+
+          clock.tick(60)
+
+      pygame.quit()
+
+def Level1():
+  source = audio.play_file("Waltz For Lilly - 3nd.mp3")
+
+  def text1():
+    win.blit(AmberDef, (x, y))    
+    text = font.render('Ok let\'s begin. Start by moving left and right with A and D', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 665)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text2():
+    win.blit(AmberHap, (x, y))    
+    text = font.render('Great job!', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 665)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text3():
+    win.blit(AmberDef, (x, y))    
+    text = font.render('Ok let\'s move onto shooting. Press space to shoot!', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 665)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text4():
+    win.blit(AmberHap, (x, y))    
+    text = font.render('Nice going!', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 665)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text5():
+    win.blit(AmberDef, (x, y))    
+    text = font.render('Now try to hit all of the falling aliens to win! Your score is', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 650)
+    win.blit(text, textRect)
+    text2 = font.render('in the corner', True, black)
+    textRect2 = text2.get_rect()
+    textRect2.center = (600, 675)
+    win.blit(text2, textRect2)
+    pygame.display.update()
+  def drawfunc():
+    win.blit(bg1, (0,0)) #Draws the Background
+    win.blit(bd, (360, 100)) #This where the game will go
+    #win.blit(bb, (325,50))
+    win.blit(tb, (350, 600))
+    win.blit(ch, (50, 100))
+    pygame.display.update()
+  drawfunc()
+  i = 0
+  a = 0
+  b = 0
+  c = 0
+  l = 0
+  m = 0
+  n = 0
+  o = 0
+  p = 0
+  run = True
+  while run: #Main function
+    clock.tick(60) #60FPS
+    if i != 600:
+      if  l == 0:
+        drawfunc()
+        text1()
+        l += 1
+      i += 1
+    if i == 600:
+      if n == 0:
+        drawfunc()
+        text2()
+        n += 1
+      a += 1
+    if a >= 300:
+      if m == 0:
+        drawfunc()
+        text3()
+        m += 1
+      b += 1
+    if b >= 600:
+      if o == 0:
+        drawfunc()
+        text4()
+        o += 1
+      c += 1
+    if c >= 300:
+      if p == 0:
+        drawfunc()
+        text5()
+        p += 1
+    for event in pygame.event.get():
+      if event.type == pygame.KEYDOWN: #Checks if the input is a key press
+        if event.key == pygame.K_SPACE:
+          source.paused = not source.paused
+          scene2()
+  pygame.quit
+
+def Level2():
+  source = audio.play_file("Slip - Shubh Saran.mp3")
+  x = 30
+  y = 300
+  def drawfunc():
+    win.blit(bg4, (0,0))
+    win.blit(bd, (360, 100)) #This where the game will go
+    #win.blit(bb, (325,50))
+    win.blit(tb, (350, 600))
+    win.blit(ch, (50, 100))
+    pygame.display.update() #Updates screen
+  def text1():
+    win.blit(CadenceDef, (x, 100))    
+    text = font.render('And a 1, and 2, and 3, and 4, and lets go', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 665)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text2():
+    win.blit(CadenceAng, (x, 100))    
+    text = font.render("You're not bad, for RCM Level 2 material", True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 665)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text3():
+    win.blit(CadenceAng, (x, 100))    
+    text = font.render("Please, what do you know about reharmonization", True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 665)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text4():
+    win.blit(CadenceDef, (x, 100))    
+    text = font.render("Oops, looks like I played a bit chromatic", True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 665)
+    win.blit(text, textRect)
+    pygame.display.update() 
+  drawfunc()
+  q = 0
+  w = 0
+  e = 0
+  r = 0
+  t = 0
+  y = 0
+  u = 0
+  run = True
+  while run: #Main function
+    clock.tick(60) #60FPS
+    
+    if q != 600:
+      if w == 0:
+        drawfunc()
+        text1()
+        w += 1
+      q += 1
+    if q == 600:
+      if e == 0:
+        drawfunc()
+        text2()
+        e += 1
+      r += 1
+    if r >= 300:
+      if t == 0:
+        drawfunc()
+        text3()
+        t += 1
+      y += 1
+    if y >= 600:
+      if u == 0:
+        drawfunc()
+        text4()
+        u += 1
+    for event in pygame.event.get():
+      if event.type == pygame.KEYDOWN: #Checks if the input is a key press
+        if event.key == pygame.K_SPACE:
+          source.paused = not source.paused
+          Level3()
+  pygame.quit
+
+def Level3():
+  Ether()
+  def drawfunc():
+    win.blit(bg2, (0,0))
+    win.blit(bd, (360, 100)) #This where the game will go
+    #win.blit(bb, (325,50))
+    win.blit(tb, (350, 600))
+    win.blit(ch, (50, 100))
+    if currentsprite == "sprite7load":
+      win.blit(RosieAng, (x,y))
+    elif currentsprite == "sprite8load":
+      win.blit(RosieDef, (x,y))
+    elif currentsprite == "sprite9load":
+      win.blit(RosieHap, (x,y))  
+    pygame.display.update() #Updates screen
+  currentsprite = "placeholder"
+
+  run = True
+  while run: #Main function
+    clock.tick(60) #60FPS
+    for event in pygame.event.get():
+      if event.type == pygame.KEYDOWN: #Checks if the input is a key press corresponding sprite
+        if event.key == pygame.K_1:
+          currentsprite = "sprite7load"
+        elif event.key == pygame.K_2:
+          currentsprite = "sprite8load"
+        elif event.key == pygame.K_3:
+          currentsprite = "sprite9load"
+      drawfunc()
+  pygame.quit
+
+def Level4():
+  Monad()
+  def drawfunc():
+    win.blit(bg5, (0,0))
+    win.blit(bd, (360, 100)) #This where the game will go
+    #win.blit(bb, (325,50))
+    win.blit(tb, (350, 600))
+    win.blit(ch, (50, 100))
+    if currentsprite == "sprite1load": #Checks if the current sprite is set to whatever sprite based on the input and if it is, should update the sprite
+      win.blit(AmberAng, (x,y))
+    elif currentsprite == "sprite10load":
+      win.blit(SamAng, (x,y))
+    elif currentsprite == "sprite11load":
+      win.blit(SamDef, (x,y))
+    elif currentsprite == "sprite12load":
+      win.blit(SamHap, (x,y))          
+    pygame.display.update() #Updates screen
+
+  currentsprite = "placeholder"
+  run = True
+  while run: #Main function
+    clock.tick(60) #60FPS
+    for event in pygame.event.get():
+      if event.type == pygame.KEYDOWN: #Checks if the input is a key press
+        if event.key == pygame.K_1:
+          currentsprite = "sprite10load"
+        elif event.key == pygame.K_2:
+          currentsprite = "sprite11load"
+        elif event.key == pygame.K_3:
+          currentsprite = "sprite12load"
+      drawfunc()
+  pygame.quit
+
+#def GokuIntro():
+  #run = True
+  #while run: #Main function
+   # redrawWindow()
+    #pygame.time.delay(0)
+    #clock.tick(60) #60FPS
+    #for event in pygame.event.get():
+      #if event.type == pygame.KEYDOWN: #Checks if the input is a key press
+       # if event.key == pygame.K_1:
+        #  fade(1250, 773)
+      #pygame.display.update()
+ # pygame.quit
+
+def Level5():
+  Cafo()
+  def drawfunc():
+    win.blit(bg3, (0,0))
+    win.blit(bd, (360, 100)) #This where the game will go
+    #win.blit(bb, (325,50))
+    win.blit(tb, (350, 600))
+    win.blit(ch, (50, 100))
+    win.blit(Goku, (x,y))
+    pygame.display.update() #Updates screen
+  run = True
+  while run: #Main function
+    clock.tick(60) #60FPS
+    for event in pygame.event.get():
+      drawfunc()
+  pygame.quit
+
+def slowPrint(self, text):
+  output = ""
+  for i in text:
+    output += str(i)
+    print(output)
+    time.sleep(0.01)
+
+def TitleScreen(): #This is where the fade isnt working
+  source = audio.play_file("Spain - Chick Corea.mp3")
+
+  def drawfunc():
+    win.fill((255,255,255))
+    win.blit(titlebg, (0,0))
+    pygame.display.update() #Updates screen
+  def fade(width, height): 
+    fade = pygame.Surface((width, height))
+    fade.fill((255,255,255))
+    for alpha in range(0, 255):
+        fade.set_alpha(alpha)
+        drawfunc()
+        win.blit(fade, (0,0))
+        pygame.display.update()
+        pygame.time.delay(1)
+  win.blit(titlebg, (0,0))
+  pygame.display.update()
+  run = True
+  while run: #Main function
+     #Updates screen
+    pygame.time.delay(1)
+    clock.tick(60) #60FPS
+    for event in pygame.event.get():
+      if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE:
+          fade(1250, 773)
+          source.paused = not source.paused
+          gamestart()
+        elif event.key == pygame.K_e:
+          pass
+  pygame.quit
+
+
+
+def gamestart():
+
+  source = audio.play_file("Skating in Central Park - Bill Evans and Jim Hall.mp3")
+
+  def text2():
+    text = font.render('Have you played the new Space Invaders? It\'s all the rage', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 565)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text3():
+    win.blit(AmberHapSmol, (440, 200))    
+    text = font.render('Here I\'ll teach you how to play!', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 565)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text4():
+    win.blit(AmberHapSmol, (440, 200))    
+    text = font.render('Don\'t you remember me? It\'s Amber!', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 565)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def drawfunc():
+    win.blit(bg5, (0, 0))
+    win.blit(AmberDefSmol, (440, 200))
+    win.blit(tb, (350, 500))
+    pygame.display.update()
+  drawfunc()
+  text = font.render('Hey there Y/N! It\'s been a while!', True, black)
+  textRect = text.get_rect()
+  textRect.center = (500, 565)
+  win.blit(text, textRect)
+  pygame.display.update()
+  i = 0
+  run = True
+  while run:
+    clock.tick(60)
+    for event in pygame.event.get():
+      if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE:
+          if i == 0:
+            drawfunc()
+            text4()
+            i += 1
+          elif i == 1:
+            drawfunc()
+            text2()
+            i += 1
+          elif i == 2:
+            drawfunc()
+            text3()
+            i += 1
+          elif i == 3:
+            source.paused = not source.paused
+            Level1()
+          
+def scene2():
+
+  source = audio.play_file("Blue in Kyoto - Yusuke Shima.mp3")
+
+  def text2():
+    win.blit(AmberAngSmol, (440, 200))    
+    text = font.render('Oh would you look at that. It\'s Cadence' , True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 565)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text3():
+    win.blit(AmberAngSmol, (440, 200))    
+    text = font.render('She\'s the leader of the Jazz Band and a total snob', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 565)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text4():
+    win.blit(CadenceAngSmol, (440, 200))    
+    text = font.render('Well hello there Amber. Funny seeing you around', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 565)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def text5():
+    win.blit(CadenceDefSmol, (440, 200))    
+    text = font.render('Haven\'t seen you before. Amber your GF?', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 550)
+    win.blit(text, textRect)
+    text2 = font.render('Poor taste if you ask me', True, black)
+    textRect2 = text2.get_rect()
+    textRect2.center = (600, 575)
+    win.blit(text2, textRect2)
+    pygame.display.update()
+  def text6():
+    win.blit(CadenceAngSmol, (440, 200))    
+    text = font.render('Whatever, doesn\'t matter. Let\'s see who\'s better at', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 550)
+    win.blit(text, textRect)
+    text2 = font.render('Space Invaders', True, black)
+    textRect2 = text2.get_rect()
+    textRect2.center = (600, 575)
+    win.blit(text2, textRect2)
+    pygame.display.update()      
+  def text7():
+    win.blit(AmberAngSmol, (440, 200))    
+    text = font.render('Grrrr, go get her Y/N', True, black)
+    textRect = text.get_rect()
+    textRect.center = (600, 565)
+    win.blit(text, textRect)
+    pygame.display.update()     
+  def text1():
+    win.blit(AmberHapSmol, (440, 200))
+    text = font.render('Well that was fun!', True, black)
+    textRect = text.get_rect()
+    textRect.center = (500, 565)
+    win.blit(text, textRect)
+    pygame.display.update()
+  def drawfunc():
+    win.blit(bg2, (0, 0))
+    win.blit(tb, (350, 500))
+    pygame.display.update()
+  drawfunc()
+  text1()
+  i = 0
+  run = True
+  while run:
+    clock.tick(60)
+    for event in pygame.event.get():
+      if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE:
+          if i == 0:
+            drawfunc()
+            text2()
+            i += 1
+          elif i == 1:
+            drawfunc()
+            text3()
+            i += 1
+          elif i == 2:
+            drawfunc()
+            text4()
+            i += 1
+          elif i == 3:
+            drawfunc()
+            text5()
+            i += 1
+          elif i == 4:
+            drawfunc()
+            text6()
+            i += 1
+          elif i == 5:
+            drawfunc()
+            text7()
+            i += 1
+          elif i == 6:
+            source.paused = not source.paused
+            Level2()
+def resizer():
+  basewidth = 350
+  img = Image.open('Cadence Default.png')
+  wpercent = (basewidth/float(img.size[0]))
+  hsize = int((float(img.size[1])*float(wpercent)))
+  img = img.resize((basewidth,hsize), Image.ANTIALIAS)
+  img.save('Cadence Default smol.png')
+
+def levelselector():
+  levelselect = input("Please choose a level (1/2/3/4/5)")
+  if levelselect == "1":
+    Level1()
+  elif levelselect == "2":
+    Level2()
+  elif levelselect == "3":
+    Level3()
+  elif levelselect == "4":
+    Level4()
+  elif levelselect == "5":
+    Level5()
+  elif levelselect == "title":
+    TitleScreen()
+  elif levelselect == "scene1":
+    gamestart()
+  elif levelselect == "resize":
+    resizer()
+  elif levelselect == "scene2":
+    scene2()
+  #elif levelselect == "GokuIntro":
+    #GokuIntro()
+  else:
+    print("Error, please try again")
+    levelselector()
+levelselector()
+
+
+
+
+#Friday:
+#1.) Fix the fading in line 327 Done
+#2.) Continue the scene scripting (at least finish first scene)
+#3.) MOST IMPORTANT: Get level 5 Bullethell to work 
+#4.) Print to textboxes
+#Saturday:
+#1.) Fix any bugs
+#2.) Get space invaders at least semi working
+#3.) Scene script up to battle 3
+#Sunday:
+#1.) Fix any bugs
+#2.) Finish all scene scipting except for last level finale
+#3.) Add slow text and any sound effects
+#Monday:
+#1.) ALL BUGS MUST BE FIXED
+#2.) Do finale scene scripting
+#3.) Add admin panel
+#4.) Finalize the project
+#5.) Any other changes made. DUE TUESDAY!!
+#Make it pretty if we have time
